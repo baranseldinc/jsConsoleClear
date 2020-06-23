@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/main.css">
+    <style>
+        .txt-right {
+            text-align: right;
+        }
+    </style>
+    <title>Baransel DİNÇ</title>
+</head>
+
+<body>
+    <div class="txt-right">
+        <label class="switch">
+            <input type="checkbox" onclick="handleClickOnOffSwitch(this)">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <hr>
+
+    <div id="configurationPanel" style="display: none;">
+        <div>
+            <input type="range" min="100" max="5000" step="100" oninput="handleInputRange(this)">
+
+            <pre><b>Log Speed:</b> <span id="rangeSpeed"></span> ms</pre>
+        </div>
+        <input style="margin-top: 6px;" type="checkbox" id="clearConsole" onclick="handleClickClearConsole(this)">
+        <pre style="display: inline;"><label for="clearConsole">Clear console before log</label></pre>
+    </div>
+
+
+    <script>
+        var iteration = 0;
+        var isRunning = false;
+        var consoleClear = false;
+        var interval;
+        var intervalTime = 2000;
+
+        const fnames = ['Baransel', 'Bedirhan', 'Doğan', 'Duygu', 'Hicran']
+        const lnames = ['DİNÇ', 'DİNÇ', 'AYDIN', 'KUŞAR', 'ÇELEBİOĞLU']
+
+        document.querySelector('input[type=range]').value = intervalTime;
+        document.getElementById('rangeSpeed').innerHTML = intervalTime;
+
+        var log = () => {
+            const fname = fnames[iteration % fnames.length];
+            const lname = lnames[iteration % lnames.length];
+            if (consoleClear)
+                console.clear();
+            console.log('Fname: ' + fname);
+            console.log('Lname: ' + lname);
+
+            iteration++;
+        }
+
+        var execProgram = () => {
+            if (interval)
+                clearInterval(interval);
+
+            if (isRunning) {
+                interval = setInterval(log, intervalTime);
+            }
+        }
+
+        function handleClickOnOffSwitch(elem) {
+            isRunning = elem.checked;
+            document.getElementById('configurationPanel').style.display = (isRunning ? 'block' : 'none');
+            execProgram();
+        }
+
+        function handleClickClearConsole(elem) {
+            consoleClear = elem.checked;
+        }
+
+        function handleInputRange(range) {
+            intervalTime = range.value;
+            document.getElementById('rangeSpeed').innerHTML = range.value;
+            execProgram();
+        }
+    </script>
+</body>
+
+</html>
