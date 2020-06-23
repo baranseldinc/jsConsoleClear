@@ -65,6 +65,7 @@
             console.log('Fname: ' + fname);
             console.log('Lname: ' + lname);
 
+            updateScroll();
             iteration++;
         }
 
@@ -91,6 +92,11 @@
             intervalTime = range.value;
             document.getElementById('rangeSpeed').innerHTML = range.value;
             execProgram();
+        }
+
+        function updateScroll() {
+            var element = document.getElementById("logger");
+            element.scrollTop = element.scrollHeight;
         }
 
     </script>
