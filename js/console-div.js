@@ -1,6 +1,7 @@
 
 let console = {};
 
+
 // Getting div to insert logs
 let logger = document.getElementById("logger");
 
