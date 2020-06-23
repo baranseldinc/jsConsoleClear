@@ -50,6 +50,7 @@
         var consoleClear = false;
         var interval;
         var intervalTime = 2000;
+        var isMobile = navigator.userAgent.includes('Mobi');
 
         const fnames = ['Baransel', 'Bedirhan', 'Doğan', 'Duygu', 'Hicran']
         const lnames = ['DİNÇ', 'DİNÇ', 'AYDIN', 'KUŞAR', 'ÇELEBİOĞLU']
@@ -65,7 +66,7 @@
             console.log('Fname: ' + fname);
             console.log('Lname: ' + lname);
 
-            updateScroll();
+            if (isMobile) updateScroll();
             iteration++;
         }
 
