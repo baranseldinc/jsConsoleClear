@@ -12,6 +12,4 @@ console.log = text => {
     element.appendChild(txt);
     logger.appendChild(element);
 }
-
-
 console.clear = () => logger.innerHTML = '';
