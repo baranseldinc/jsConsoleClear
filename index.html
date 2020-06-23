@@ -9,6 +9,10 @@
         .txt-right {
             text-align: right;
         }
+        #logger {
+            max-width: 600px;
+            overflow-y: scroll;
+        }
     </style>
     <title>Baransel DİNÇ</title>
 </head>
@@ -31,7 +35,7 @@
         <input style="margin-top: 6px;" type="checkbox" id="clearConsole" onclick="handleClickClearConsole(this)">
         <pre style="display: inline;"><label for="clearConsole">Clear console before log</label></pre>
     </div>
-    
+
     <pre>
         <div id="logger"></div>
     </pre>
