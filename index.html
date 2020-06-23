@@ -31,6 +31,9 @@
         <input style="margin-top: 6px;" type="checkbox" id="clearConsole" onclick="handleClickClearConsole(this)">
         <pre style="display: inline;"><label for="clearConsole">Clear console before log</label></pre>
     </div>
+    <pre>
+        <div id="logger"></div>
+    </pre>
 
 
     <script>
@@ -81,7 +84,10 @@
             document.getElementById('rangeSpeed').innerHTML = range.value;
             execProgram();
         }
+
     </script>
+    <script type="text/javascript" src="./js/console-div.js"></script>
+
 </body>
 
 </html>
